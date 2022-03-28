@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Interactive rating component</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.min.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <div class="rating-component">
+        <img src="images/icon-star.svg" alt="" class="rating-component__img" />
+        <h1 class="rating-component__header">How did we do?</h1>
+        <p class="rating-component__p">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+        <form class="rating-component__form">
+          <div class="rating-component__form-rating-wrapper">
+            <div class="rating-component__select-rating">
+              <label
+                for="rating-1"
+                class="rating-component__label"
+                data-active="false"
+                >1
+                <input type="radio" name="rating" id="rating-1" />
+              </label>
+            </div>
+            <div class="rating-component__select-rating">
+              <label
+                for="rating-2"
+                class="rating-component__label"
+                data-active="false"
+                >2
+                <input type="radio" name="rating" id="rating-2" />
+              </label>
+            </div>
+            <div class="rating-component__select-rating">
+              <label
+                for="rating-3"
+                class="rating-component__label"
+                data-active="false"
+                >3
+                <input type="radio" name="rating" id="rating-3" />
+              </label>
+            </div>
+            <div class="rating-component__select-rating">
+              <label
+                for="rating-4"
+                class="rating-component__label"
+                data-active="false"
+                >4
+                <input type="radio" name="rating" id="rating-4" />
+              </label>
+            </div>
+            <div class="rating-component__select-rating">
+              <label
+                for="rating-5"
+                class="rating-component__label"
+                data-active="false"
+                >5
+                <input type="radio" name="rating" id="rating-5" />
+              </label>
+            </div>
+          </div>
+          <input
+            type="submit"
+            value="Submit"
+            class="rating-component__form-submit"
+          />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

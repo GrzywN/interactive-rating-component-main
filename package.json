@@ -1,0 +1,26 @@
+{
+  "name": "interactive-rating-component-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Interactive rating component coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GrzywN/interactive-rating-component-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GrzywN/interactive-rating-component-main/issues"
+  },
+  "homepage": "https://github.com/GrzywN/interactive-rating-component-main#readme",
+  "dependencies": {
+    "parcel": "^2.4.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.0"
+  }
+}

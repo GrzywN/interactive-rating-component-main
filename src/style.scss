@@ -1,0 +1,148 @@
+@use 'sass:math';
+
+$color-orange: hsl(25, 97%, 53%);
+$color-white: hsl(0, 0%, 100%);
+$color-light-grey: hsl(217, 12%, 63%);
+$color-medium-grey: hsl(216, 12%, 54%);
+$color-dark-blue: hsl(213, 19%, 18%);
+$color-very-dark-blue: hsl(216, 12%, 8%);
+
+$font-family-overpass: 'Overpass', sans-serif;
+
+@function toRem($value) {
+  $remValue: math.div($value, 16) + rem;
+  @return $remValue;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  // border: 1px dashed grey;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $color-very-dark-blue;
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  font-family: $font-family-overpass;
+}
+
+.rating-component {
+  background-image: radial-gradient(#232a34, #181e27);
+  border-radius: toRem(30);
+  min-height: toRem(416);
+  width: toRem(412);
+  max-width: 90vw;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__img {
+    box-sizing: content-box;
+    width: 1rem;
+    height: 1rem;
+    padding: 1rem;
+    border-radius: 50%;
+    background-color: $color-dark-blue;
+  }
+  &__header {
+    font-size: toRem(28);
+    font-weight: 700;
+    color: $color-white;
+    &--center {
+      text-align: center;
+    }
+  }
+  &__p {
+    font-size: toRem(15);
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: $color-light-grey;
+    &--center {
+      text-align: center;
+    }
+  }
+  // &__form {
+  // }
+  &__form-rating-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__select-rating {
+    justify-self: center;
+  }
+  &__label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $color-dark-blue;
+    color: $color-medium-grey;
+    width: toRem(51);
+    height: toRem(51);
+    transition: all 200ms ease;
+    &[data-active='true'] {
+      background-color: $color-light-grey;
+      color: $color-white;
+    }
+    &:hover {
+      background-color: $color-orange;
+      color: $color-white;
+      transform: scale(1.02);
+    }
+  }
+  &__form-submit {
+    cursor: pointer;
+    margin-top: toRem(32);
+    width: 100%;
+    padding-block: 0.75rem;
+    background-color: $color-orange;
+    color: $color-white;
+    font-family: $font-family-overpass;
+    font-weight: 700;
+    font-size: toRem(15);
+    letter-spacing: 2px;
+    border-radius: toRem(22.5);
+    transition: all 200ms ease;
+    &:hover {
+      background-color: $color-white;
+      color: $color-orange;
+      transform: scale(1.02);
+    }
+  }
+  input[type='radio'] {
+    display: none;
+  }
+  &__illustration {
+    align-self: center;
+    width: toRem(162);
+    height: toRem(108);
+  }
+  &__you-selected {
+    align-self: center;
+    color: $color-orange;
+    background-color: $color-dark-blue;
+    border-radius: 1rem;
+    padding: 0.25rem 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .rating-component {
+    &__label {
+      width: toRem(42);
+      height: toRem(42);
+    }
+  }
+}
