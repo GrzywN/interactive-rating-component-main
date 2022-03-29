@@ -41,20 +41,22 @@ body {
   border-radius: toRem(30);
   min-height: toRem(416);
   width: toRem(412);
-  max-width: 90vw;
-  padding: 2rem;
+  max-width: 87.2vw;
+  padding-inline: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   &__img {
+    margin-top: toRem(32);
     box-sizing: content-box;
     width: 1rem;
     height: 1rem;
     padding: 1rem;
     border-radius: 50%;
     background-color: $color-dark-blue;
+    margin-bottom: 0.5rem;
   }
   &__header {
+    margin-top: 2rem;
     font-size: toRem(28);
     font-weight: 700;
     color: $color-white;
@@ -63,6 +65,8 @@ body {
     }
   }
   &__p {
+    width: 98%;
+    margin-top: 1rem;
     font-size: toRem(15);
     font-weight: 400;
     line-height: 24px;
@@ -75,8 +79,10 @@ body {
   // &__form {
   // }
   &__form-rating-wrapper {
+    margin-top: 1.5rem;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   &__select-rating {
     justify-self: center;
@@ -105,8 +111,9 @@ body {
   &__form-submit {
     cursor: pointer;
     margin-top: toRem(32);
-    width: 100%;
+    margin-bottom: toRem(32);
     padding-block: 0.75rem;
+    width: 100%;
     background-color: $color-orange;
     color: $color-white;
     font-family: $font-family-overpass;
@@ -125,11 +132,14 @@ body {
     display: none;
   }
   &__illustration {
+    margin-top: toRem(45);
     align-self: center;
     width: toRem(162);
     height: toRem(108);
   }
   &__you-selected {
+    margin-top: 2rem;
+    font-size: toRem(15);
     align-self: center;
     color: $color-orange;
     background-color: $color-dark-blue;
@@ -139,10 +149,33 @@ body {
 }
 
 @media (max-width: 600px) {
+  body {
+    padding: 1.5rem;
+  }
   .rating-component {
+    min-height: toRem(360);
+    &__img {
+      transform: scale(0.83);
+    }
+    &__header {
+      margin-top: 1rem;
+      font-size: toRem(24);
+    }
+    &__p {
+      margin-top: toRem(7);
+      font-size: toRem(14);
+      line-height: toRem(22);
+    }
     &__label {
       width: toRem(42);
       height: toRem(42);
+    }
+    &__illustration {
+      width: toRem(144);
+      height: toRem(96);
+    }
+    &__you-selected {
+      font-size: toRem(14);
     }
   }
 }
