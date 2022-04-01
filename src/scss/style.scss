@@ -1,12 +1,12 @@
 @use 'sass:math';
 
-$color-orange: hsl(25, 97%, 53%);
-$color-white: hsl(0, 0%, 100%);
+$color-dark-blue: hsl(213, 19%, 18%);
 $color-light-grey: hsl(217, 12%, 63%);
 $color-medium-grey: hsl(216, 12%, 54%);
-$color-dark-blue: hsl(213, 19%, 18%);
+$color-orange: hsl(25, 97%, 53%);
+$color-pure-white: hsl(0, 0%, 100%);
 $color-very-dark-blue: hsl(216, 12%, 8%);
-
+$color-black-gradient: radial-gradient(#232a34, #181e27);
 $font-family-overpass: 'Overpass', sans-serif;
 
 @function toRem($value) {
@@ -17,15 +17,10 @@ $font-family-overpass: 'Overpass', sans-serif;
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
-  // border: 1px dashed grey;
-}
-
-html {
-  box-sizing: border-box;
 }
 
 body {
@@ -36,17 +31,41 @@ body {
   font-family: $font-family-overpass;
 }
 
-.rating-component {
-  background-image: radial-gradient(#232a34, #181e27);
+.card {
+  background-image: $color-black-gradient;
   border-radius: toRem(30);
   min-height: toRem(416);
   width: toRem(412);
   max-width: 87.2vw;
-  padding-inline: 2rem;
-  display: flex;
-  flex-direction: column;
+  perspective: 1000px;
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+  }
+  &__front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: opacity 1s ease;
+    padding: 2rem;
+  }
+  &__back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateX(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
   &__img {
-    margin-top: toRem(32);
     box-sizing: content-box;
     width: 1rem;
     height: 1rem;
@@ -56,17 +75,17 @@ body {
     margin-bottom: 0.5rem;
   }
   &__header {
-    margin-top: 2rem;
+    margin-top: toRem(30);
     font-size: toRem(28);
     font-weight: 700;
-    color: $color-white;
+    color: $color-pure-white;
     &--center {
       text-align: center;
     }
   }
   &__p {
     width: 98%;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-size: toRem(15);
     font-weight: 400;
     line-height: 24px;
@@ -76,8 +95,6 @@ body {
       text-align: center;
     }
   }
-  // &__form {
-  // }
   &__form-rating-wrapper {
     margin-top: 1.5rem;
     display: flex;
@@ -92,6 +109,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-weight: 700;
     border-radius: 50%;
     background-color: $color-dark-blue;
     color: $color-medium-grey;
@@ -100,30 +118,32 @@ body {
     transition: all 200ms ease;
     &[data-active='true'] {
       background-color: $color-light-grey;
-      color: $color-white;
+      color: $color-pure-white;
     }
-    &:hover {
+    &:hover,
+    &:focus-visible {
       background-color: $color-orange;
-      color: $color-white;
+      color: $color-pure-white;
       transform: scale(1.02);
     }
   }
   &__form-submit {
     cursor: pointer;
-    margin-top: toRem(32);
-    margin-bottom: toRem(32);
+    margin-top: 2rem;
     padding-block: 0.75rem;
     width: 100%;
+    min-height: toRem(45);
     background-color: $color-orange;
-    color: $color-white;
+    color: $color-pure-white;
     font-family: $font-family-overpass;
     font-weight: 700;
     font-size: toRem(15);
+    text-transform: uppercase;
     letter-spacing: 2px;
     border-radius: toRem(22.5);
     transition: all 200ms ease;
     &:hover {
-      background-color: $color-white;
+      background-color: $color-pure-white;
       color: $color-orange;
       transform: scale(1.02);
     }
@@ -133,18 +153,19 @@ body {
   }
   &__illustration {
     margin-top: toRem(45);
-    align-self: center;
     width: toRem(162);
     height: toRem(108);
   }
   &__you-selected {
     margin-top: 2rem;
     font-size: toRem(15);
-    align-self: center;
     color: $color-orange;
     background-color: $color-dark-blue;
     border-radius: 1rem;
     padding: 0.25rem 1.25rem;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
   }
 }
 
@@ -152,19 +173,36 @@ body {
   body {
     padding: 1.5rem;
   }
-  .rating-component {
+  .card {
     min-height: toRem(360);
+    &__front {
+      padding: 1.5rem;
+    }
+    &__back {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
     &__img {
-      transform: scale(0.83);
+      box-sizing: content-box;
+      width: toRem(13);
+      height: toRem(13);
+      padding: toRem(13.5);
+      border-radius: 50%;
+      background-color: $color-dark-blue;
+      margin-bottom: 0.5rem;
     }
     &__header {
       margin-top: 1rem;
       font-size: toRem(24);
     }
     &__p {
-      margin-top: toRem(7);
+      width: 100%;
+      margin-top: toRem(10);
       font-size: toRem(14);
       line-height: toRem(22);
+    }
+    &__form-submit {
+      margin-top: 1.5rem;
     }
     &__label {
       width: toRem(42);

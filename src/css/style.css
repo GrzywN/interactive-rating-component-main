@@ -1,0 +1,239 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-color: hsl(216deg, 12%, 8%);
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  font-family: "Overpass", sans-serif;
+}
+
+.card {
+  background-image: radial-gradient(#232a34, #181e27);
+  border-radius: 1.875rem;
+  min-height: 26rem;
+  width: 25.75rem;
+  max-width: 87.2vw;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+}
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+}
+.card__front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: opacity 1s ease;
+  transition: opacity 1s ease;
+  padding: 2rem;
+}
+.card__back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+.card__img {
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  width: 1rem;
+  height: 1rem;
+  padding: 1rem;
+  border-radius: 50%;
+  background-color: hsl(213deg, 19%, 18%);
+  margin-bottom: 0.5rem;
+}
+.card__header {
+  margin-top: 1.875rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: hsl(0deg, 0%, 100%);
+}
+.card__header--center {
+  text-align: center;
+}
+.card__p {
+  width: 98%;
+  margin-top: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+  color: hsl(217deg, 12%, 63%);
+}
+.card__p--center {
+  text-align: center;
+}
+.card__form-rating-wrapper {
+  margin-top: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.card__select-rating {
+  justify-self: center;
+}
+.card__label {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 700;
+  border-radius: 50%;
+  background-color: hsl(213deg, 19%, 18%);
+  color: hsl(216deg, 12%, 54%);
+  width: 3.1875rem;
+  height: 3.1875rem;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.card__label[data-active=true] {
+  background-color: hsl(217deg, 12%, 63%);
+  color: hsl(0deg, 0%, 100%);
+}
+.card__label:hover, .card__label:focus-visible {
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+.card__form-submit {
+  cursor: pointer;
+  margin-top: 2rem;
+  padding-block: 0.75rem;
+  width: 100%;
+  min-height: 2.8125rem;
+  background-color: hsl(25deg, 97%, 53%);
+  color: hsl(0deg, 0%, 100%);
+  font-family: "Overpass", sans-serif;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 1.40625rem;
+  -webkit-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.card__form-submit:hover {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(25deg, 97%, 53%);
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+.card input[type=radio] {
+  display: none;
+}
+.card__illustration {
+  margin-top: 2.8125rem;
+  width: 10.125rem;
+  height: 6.75rem;
+}
+.card__you-selected {
+  margin-top: 2rem;
+  font-size: 0.9375rem;
+  color: hsl(25deg, 97%, 53%);
+  background-color: hsl(213deg, 19%, 18%);
+  border-radius: 1rem;
+  padding: 0.25rem 1.25rem;
+  min-height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  .card {
+    min-height: 22.5rem;
+  }
+  .card__front {
+    padding: 1.5rem;
+  }
+  .card__back {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .card__img {
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
+    width: 0.8125rem;
+    height: 0.8125rem;
+    padding: 0.84375rem;
+    border-radius: 50%;
+    background-color: hsl(213deg, 19%, 18%);
+    margin-bottom: 0.5rem;
+  }
+  .card__header {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  .card__p {
+    width: 100%;
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+  }
+  .card__form-submit {
+    margin-top: 1.5rem;
+  }
+  .card__label {
+    width: 2.625rem;
+    height: 2.625rem;
+  }
+  .card__illustration {
+    width: 9rem;
+    height: 6rem;
+  }
+  .card__you-selected {
+    font-size: 0.875rem;
+  }
+}
