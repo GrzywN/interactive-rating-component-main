@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [GitHub](https://github.com/GrzywN/interactive-rating-component-main)
-- Live Site URL: [Netlify]()
+- Live Site URL: [Netlify](https://lively-mandazi-1775a9.netlify.app/)
 
 ## My process
 
